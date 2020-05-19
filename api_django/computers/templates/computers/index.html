@@ -1,0 +1,12 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {% comment %} The url label go to an espeficic url defined in urls.py it gets the variable "name" {% endcomment %}
+        {% comment %} We can set a namespace if you have urls with the same name in many applications, you need 
+        to set a namespace to especify what template do you want{% endcomment %}
+        <li><a href="{% url 'computers:detail' question.id%}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No computers are avaliable.</p>
+{% endif %}

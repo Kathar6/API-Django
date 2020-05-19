@@ -1,0 +1,11 @@
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+    {% for choice in question.choice_set.all %}
+        {% comment %} {{ value|pluralize }} Pluralizes a word if the value is more than 1 {% endcomment %}
+        <li><h2>{{ choice.choice_text }}</h3></li>
+        <li><h3>vote{{ choice.votes|pluralize }}: {{ choice.votes }}</h3></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'computers:detail' question.id %}">Vote again?</a>
