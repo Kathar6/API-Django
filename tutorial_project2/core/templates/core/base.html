@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title_page %}ComponentsNow{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
+</head>
+<body>
+    {% include "core/nav.html" %}
+    <section>
+    {% block body %}
+    {% endblock %}
+    </section>
+    {% comment %}{% include "core/footer.html" %} {% endcomment %}
+</body>
+</html>

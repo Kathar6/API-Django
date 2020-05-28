@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block title_page %}Categories{% endblock %}
+{% block body %}
+    {% if categories %}
+        {% if info_message %}
+            <div class="info_block">
+                {{ info_message }}
+            </div>
+        {% endif %}
+        <div class="list_section">
+            {% for category in categories %}
+                <div class="generic_card">
+                    <h1>{{ category.name }}</h1>
+                    <h4>Description:</h4>
+                    <p>{{ category.description }}</p>
+                    <a href="{% url 'components:components' category.id %} " class="link_button_1">Search</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No categories available</p>
+    {% endif %}
+{% endblock %}

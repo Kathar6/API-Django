@@ -1,0 +1,115 @@
+@import url('./variables.css');
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+* {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    transition-property: width, height;
+    transition-duration: .3s;
+}
+
+a {
+    all: unset;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+body {
+    background-color: var(--white-2);
+    overflow: hidden;
+    padding: 15vh 0 0 0;
+    margin: 0;
+}
+
+section{
+    height: 85vh;
+    padding:0;
+    margin:0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar{
+        width:.7vw !important;
+        background-color:transparent;
+    }
+    &::-webkit-scrollbar-track{
+        -webkit-box-shadow:none !important;
+        box-shadow:none !important;
+        background-color:transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color:var(--black-2);
+        border-radius:5px;
+    }
+}
+
+.link_button_1 {
+    border: 2px solid var(--black-2);
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 1vh 1vw;
+    transition-property: background-color, color;
+    transition-duration: .5s;
+
+    &:hover {
+        background-color: var(--black-2);
+        color:white;
+        cursor: pointer;
+    }
+}
+
+.link_button_1_fluid {
+    width:100%;
+    border: 2px solid var(--black-2);
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 1vh 1vw;
+    transition-property: background-color, color;
+    transition-duration: .5s;
+
+    &:hover {
+        background-color: var(--black-2);
+        color:white;
+        cursor: pointer;
+    }
+}
+
+.list_section, .detail_block {
+    min-width: 70vw;
+    max-width: 85vw;
+    min-height: fit-content;
+    margin: 5vh auto;
+    padding: 1vw;
+    background-color: var(--white-3);
+}
+
+.generic_card {
+    display: inline-block;
+    min-width: 15vw;
+    max-width: 40vw;
+    min-height: 15vh;
+    max-height: 40vh;
+    background-color: var(--white-2);
+    border: 0px solid transparent;
+    border-radius: 5px;
+    padding: 1%;
+    margin-right: 5vw;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba($color: #414141,$alpha: 0.7);
+    -moz-box-shadow: 0px 0px 5px 1px rgba($color: #414141,$alpha: 0.7);
+    box-shadow: 0px 0px 5px 1px rgba($color: #414141,$alpha: 0.7);
+    *{
+        margin-top: 0;
+    }
+}
+
+.detail_block{
+    padding:2vh 5vw;
+    .detail_image_block{
+        background-color:var(--black-3);
+        min-height:30vh;
+    }
+}

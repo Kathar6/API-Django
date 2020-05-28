@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% if components %}
+    {% block title_page %}ComponentsNow{% endblock %}
+    {% block body %}
+            <div class="list_section">
+                {% for component in components %}
+                        <div class="generic_card">
+                            <h1>{{ component.name }}</h1>
+                            <a href="{% url 'components:component_detail' category component.id %}" class="link_button_1">Details</a>
+                        </div>
+                {% endfor %}
+            </div>
+    {% endblock %}
+{% else %}
+    <p>This category of components is not available at the moment</p>
+    {{ category }}
+{% endif %}
