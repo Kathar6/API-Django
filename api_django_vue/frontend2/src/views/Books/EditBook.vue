@@ -3,7 +3,7 @@
         <div class="row">
             <!-- Page title -->
             <div class="col text-left">
-                <h2>New Book</h2>
+                <h2>Edit Book</h2>
             </div>
         </div>
         <div class="row">
@@ -27,8 +27,8 @@
                             </div>
                             <div class="rows">
                                 <div class="col text-left">
-                                    <b-button type="submit" variant="success">
-                                        Create
+                                    <b-button type="submit" variant="primary">
+                                        Edit
                                     </b-button> 
                                     <b-button type="submit" class="btn-large-space" :to="{ name:'ListBook' }">
                                         Cancel
@@ -59,23 +59,33 @@ export default {
     },
     methods: {
         async onSubmit(evt){
-            // Prevent the submit redirection form
             evt.preventDefault()
-
-            // Send a request to the API
-            const path = `http://localhost:8000/api/v1.0/books/`
+            const path = `http://localhost:8081/api/v1.0/books/${this.bookId}/`
             try {
-                let response = await axios.post(path, this.form)
+                let response = await axios.put(path, this.form)
+                console.log(response);
                 // alert("Book updated successfully")
-                swal("Created!", "The new book has been created successfully", "success")
+                swal("Updated!", "The book has been update successfully", "success")
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async getBook (){
+            const path = `http://localhost:8081/api/v1.0/books/${this.bookId}/`
+            try {
+                let response = await axios.get(path)
+                this.form.title = response.data.title
+                this.form.description = response.data.description
             } catch (error) {
                 console.log(error);
             }
         }
+    },
+    created(){
+        this.getBook()
     }
-}
+};
 </script>
 
 <style>
-
 </style>

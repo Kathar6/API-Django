@@ -31,9 +31,10 @@ export default {
     },
     methods: {
         async deleteBook(){
-            const path = `http://localhost:8000/api/v1.0/books/${this.bookId}/`
+            const path = `http://localhost:8081/api/v1.0/books/${this.bookId}/`
             try {
                 let response = await axios.delete(path)
+                console.log(response);
                 location.href = '/books'
             } catch (error) {
                 swal("Error!", "An error has been ocurred.", "error")
@@ -41,7 +42,7 @@ export default {
             }
         },
         async getBook (){
-            const path = `http://localhost:8000/api/v1.0/books/${this.bookId}/`
+            const path = `http://localhost:8081/api/v1.0/books/${this.bookId}/`
             try {
                 let response = await axios.get(path)
                 this.element.title = response.data.title

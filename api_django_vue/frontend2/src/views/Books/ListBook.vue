@@ -40,7 +40,7 @@ export default {
     methods: {
         // Method for call books from the API with the axios module
         getBooks(){
-            const path = 'http://localhost:8000/api/v1.0/books/'
+            const path = 'http://localhost:8081/api/v1.0/books/'
             axios.get(path)
             .then(response=>{
                 this.books = response.data
